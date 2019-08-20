@@ -1,8 +1,16 @@
 [tool.poetry]
 name = "html-processor"
-version = "0.0.1"
-description = ""
+version = "0.0.2"
+description = "Package for creating HTML content processing templates"
+license = "MIT"
 authors = ["Дмитрий <acrius@mail.ru>"]
+
+readme = 'README.rst'
+
+repository = "https://github.com/brogency/html-processor"
+homepage = "https://github.com/brogency/html-processor"
+
+keywords = ['html', 'processing', 'bs4',]
 
 [tool.poetry.dependencies]
 python = "^3.7"
