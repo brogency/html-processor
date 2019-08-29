@@ -39,7 +39,7 @@ class TagRule(Rule):
         return area.findAll(self.tag)
 
     def process(self):
-        tags = self.get_tags()
+        tags = self.get_elements()
         for tag in tags:
             self.process_tag(tag)
 

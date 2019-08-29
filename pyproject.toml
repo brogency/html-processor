@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "html-processor"
-version = "0.0.2"
+version = "0.0.3"
 description = "Package for creating HTML content processing templates"
 license = "MIT"
 authors = ["Дмитрий <acrius@mail.ru>"]
