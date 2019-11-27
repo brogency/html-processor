@@ -6,20 +6,19 @@ class HtmlProcessor:
     rules = []
     processed_content = None
 
-    def __init__(self, content, rules=None):
+    def __init__(self, content, rules=None, unquote=False):
+        self.unquote = unquote
         self.raw_content = content
         if rules:
             self.rules.extend(rules)
 
-    @staticmethod
-    def get_simplyfy_content(content):
-        return unquote(
-            content.replace('\n', ''),
-        )
+    def clear_content(self, content):
+        cleared_content = content.replace('\n', '')
+        return unquote(cleared_content) if self.unquote else cleared_content
 
     def process(self):
         content = BeautifulSoup(
-            self.get_simplyfy_content(self.raw_content),
+            self.clear_content(self.raw_content),
             'html.parser',
         )
         for create_rule in self.rules:
