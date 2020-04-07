@@ -1,4 +1,4 @@
-from bs4.element import Comment
+from bs4.element import Tag, Comment
 
 
 class Rule:
@@ -78,9 +78,20 @@ class TextRule(Rule):
         new_string = self.get_new_string(string)
         if new_string != string:
             html_string.replace_with(new_string)
+        elif self.is_extract(string):
+            self._extract_node(html_string)
+
+    def _extract_node(self, html_string):
+        node = html_string.parent
+        for index, content in enumerate(node.contents):
+            if isinstance(content, Tag):
+                self._extract_node(node.contents[index])
+            else:
+                node.contents[index] = ''
+        node.extract()
 
     def get_new_string(self, string):
         return string
 
-    def select_string(self, string):
-        return True
+    def is_extract(self, string):
+        return False
