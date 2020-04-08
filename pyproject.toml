@@ -13,7 +13,7 @@ homepage = "https://github.com/brogency/html-processor"
 keywords = ['html', 'processing', 'bs4',]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.6"
 bs4 = "^0.0.1"
 
 [tool.poetry.dev-dependencies]
