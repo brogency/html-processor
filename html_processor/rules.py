@@ -25,7 +25,7 @@ class Rule:
         return True
 
     def process(self):
-        pass
+        self.get_elements()
 
 
 class TagRule(Rule):
@@ -45,17 +45,14 @@ class TagRule(Rule):
 
     def process_tag(self, tag):
         attributes = tag.attrs
-        new_tag = self.get_new_tag(attributes)
+        new_tag = self.get_new_tag(attributes, contents=tag.contents)
         if new_tag:
             tag.replaceWith(new_tag)
         elif self.is_extract(attributes):
             tag.extract()
 
-    def get_new_tag(self, attributes):
-        tag = self.create_tag()
-        tag.attrs = attributes
-
-        return tag
+    def get_new_tag(self, attributes, contents=None):
+        return None
 
     def is_extract(self, tag):
         return False
@@ -82,13 +79,7 @@ class TextRule(Rule):
             self._extract_node(html_string)
 
     def _extract_node(self, html_string):
-        node = html_string.parent
-        for index, content in enumerate(node.contents):
-            if isinstance(content, Tag):
-                self._extract_node(node.contents[index])
-            else:
-                node.contents[index] = ''
-        node.extract()
+        html_string.parent.decompose()
 
     def get_new_string(self, string):
         return string
