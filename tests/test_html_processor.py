@@ -23,7 +23,7 @@ class AdventureTextRule(TextRule):
     def get_new_string(self, string: str):
         return string.replace('BORING', 'ADVENTURE')
 
-    def is_extract(self, string):
+    def is_extract(self, string, **kwargs):
         return string == 'Batman is here!'
 
 
@@ -37,7 +37,7 @@ class ImageSourceRule(TagRule):
             tag.attrs['src'] = src
             return tag
 
-    def is_extract(self, attributes):
+    def is_extract(self, attributes, **kwargs):
         return attributes.get('data-content') == 'delete me'
 
 
