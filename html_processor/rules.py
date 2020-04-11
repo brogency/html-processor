@@ -48,13 +48,13 @@ class TagRule(Rule):
         new_tag = self.get_new_tag(attributes, contents=tag.contents)
         if new_tag:
             tag.replaceWith(new_tag)
-        elif self.is_extract(attributes):
+        elif self.is_extract(attributes, contents=tag.contents):
             tag.extract()
 
     def get_new_tag(self, attributes, contents=None):
         return None
 
-    def is_extract(self, tag):
+    def is_extract(self, attributes, contents=None):
         return False
 
 

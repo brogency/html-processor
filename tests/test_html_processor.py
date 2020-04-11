@@ -61,7 +61,7 @@ class Processor(HtmlProcessor):
 
 
 def test_version():
-    assert __version__ == '0.0.4'
+    assert __version__ == '0.0.5'
 
 
 def test_text():
