@@ -10,7 +10,7 @@ homepage = "https://github.com/brogency/html-processor"
 documentation = "https://github.com/brogency/html-processor"
 keywords = ["html", "processing", "bs4", "BeautifulSoup"]
 classifiers = [
-    "Text Processing :: Markup :: HTML"
+    "Topic :: Text Processing :: Markup :: HTML"
 ]
 
 [tool.poetry.dependencies]
